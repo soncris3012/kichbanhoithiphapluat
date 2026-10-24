@@ -37,14 +37,7 @@
       </a>
 
       <div class="header-actions">
-        <button id="fontToggleBtn" class="btn" title="Chuyển đổi phông chữ Serif / Hiện đại">🔤 Font: Hiện đại</button>
-        <div class="btn-group" style="display: flex; gap: 4px;">
-          <button id="fontDecBtn" class="btn btn-icon-only" title="Giảm cỡ chữ">A-</button>
-          <button id="fontIncBtn" class="btn btn-icon-only" title="Tăng cỡ chữ">A+</button>
-        </div>
         <button id="themeToggleBtn" class="btn" title="Chuyển đổi giao diện Sáng / Tối">🌙 Tối</button>
-        <button id="printPageBtn" class="btn" title="In hoặc lưu PDF trang web">🖨️ In kịch bản</button>
-        <button id="downloadPdfBtn" class="btn btn-success" title="Tải file PDF chuẩn A4">⬇️ Tải PDF</button>
       </div>
     </div>
   </header>
@@ -62,25 +55,6 @@
       <p class="hero-subtitle">
         Tiểu phẩm sân khấu kịch ngắn giáo dục ý thức chấp hành Luật Giao thông đường bộ, phòng chống tác hại rượu bia và giữ nghiêm kỷ luật người quân nhân.
       </p>
-
-      <div class="hero-meta-grid">
-        <div class="meta-item">
-          <span>🎭</span>
-          <div>Số nhân vật: <strong>8 vai chính + 1 vai phụ</strong></div>
-        </div>
-        <div class="meta-item">
-          <span>🎬</span>
-          <div>Thời lượng ước tính: <strong>12 – 15 Phút</strong></div>
-        </div>
-        <div class="meta-item">
-          <span>📍</span>
-          <div>Bố cục: <strong>5 Cảnh diễn liền mạch</strong></div>
-        </div>
-        <div class="meta-item">
-          <span>📜</span>
-          <div>Chủ đề: <strong>ATGT &amp; Kỷ luật Quân đội</strong></div>
-        </div>
-      </div>
     </section>
 
     <!-- Control Hub (Search, Tools & Character Filters) -->
@@ -103,62 +77,50 @@
       <div class="filter-section">
         <div class="filter-title">
           <span>Lọc kịch bản theo nhân vật</span>
-          <span style="font-weight: normal; text-transform: none; color: var(--text-dim);">(Bấm để làm nổi bật thoại của từng vai)</span>
         </div>
         <div class="char-pills">
           <button class="pill-btn active" data-filter="all">
             <span>Tất cả</span>
-            <span class="pill-count">0</span>
           </button>
           <button class="pill-btn" data-filter="son">
             <span class="pill-dot" style="background: var(--char-son-border);"></span>
             <span>Thái Sơn</span>
-            <span class="pill-count">0</span>
           </button>
           <button class="pill-btn" data-filter="cuong">
             <span class="pill-dot" style="background: var(--char-cuong-border);"></span>
             <span>Cường</span>
-            <span class="pill-count">0</span>
           </button>
           <button class="pill-btn" data-filter="dung">
             <span class="pill-dot" style="background: var(--char-dung-border);"></span>
             <span>Dũng</span>
-            <span class="pill-count">0</span>
           </button>
           <button class="pill-btn" data-filter="nhung">
             <span class="pill-dot" style="background: var(--char-nhung-border);"></span>
             <span>Chị Nhung</span>
-            <span class="pill-count">0</span>
           </button>
           <button class="pill-btn" data-filter="taibua">
             <span class="pill-dot" style="background: var(--char-taibua-border);"></span>
             <span>Tài Búa</span>
-            <span class="pill-count">0</span>
           </button>
           <button class="pill-btn" data-filter="linh">
             <span class="pill-dot" style="background: var(--char-linh-border);"></span>
             <span>Linh</span>
-            <span class="pill-count">0</span>
           </button>
           <button class="pill-btn" data-filter="lan">
             <span class="pill-dot" style="background: var(--char-lan-border);"></span>
             <span>Lan</span>
-            <span class="pill-count">0</span>
           </button>
           <button class="pill-btn" data-filter="lai">
             <span class="pill-dot" style="background: var(--char-lai-border);"></span>
             <span>Thượng úy Lai</span>
-            <span class="pill-count">0</span>
           </button>
           <button class="pill-btn" data-filter="an">
             <span class="pill-dot" style="background: var(--char-an-border);"></span>
             <span>An</span>
-            <span class="pill-count">0</span>
           </button>
           <button class="pill-btn" data-filter="group">
             <span class="pill-dot" style="background: var(--char-group-border);"></span>
             <span>Cả nhóm</span>
-            <span class="pill-count">0</span>
           </button>
         </div>
       </div>
@@ -179,7 +141,6 @@
     <section class="cast-section" id="cast">
       <div class="section-heading">
         <h2>👥 BẢNG PHÂN VAI &amp; ĐẶC TRƯNG TÍNH CÁCH</h2>
-        <span style="font-size: 0.825rem; color: var(--text-muted);">(Nhấn vào từng thẻ để lọc thoại)</span>
       </div>
 
       <div class="cast-grid">
@@ -1448,24 +1409,7 @@
         </div>
       </section>
 
-      <!-- Legal Takeaways / Kiến thức thi pháp luật -->
-      <section class="legal-box">
-        <h3>⚖️ CĂN CỨ PHÁP LUẬT LIÊN QUAN ĐẾN TIỂU PHẨM</h3>
-        <div class="legal-grid">
-          <div class="legal-item">
-            <h4>1. Luật Giao thông đường bộ 2008 &amp; Nghị định 100/2019/NĐ-CP</h4>
-            <p>Nghiêm cấm điều khiển phương tiện tham gia giao thông mà trong máu hoặc hơi thở có nồng độ cồn; cấm chở quá số người quy định (kẹp ba), không đội mũ bảo hiểm và lạng lách đánh võng trên đường.</p>
-          </div>
-          <div class="legal-item">
-            <h4>2. Luật Phòng, chống tác hại của rượu, bia 2019</h4>
-            <p>Quy định các hành vi bị nghiêm cấm trong sử dụng rượu, bia; đặc biệt đối với cán bộ, công chức, viên chức, lực lượng vũ trang nhân dân trong thời gian làm việc và thực thi nhiệm vụ.</p>
-          </div>
-          <div class="legal-item">
-            <h4>3. Điều lệnh Quản lý Bộ đội QĐND Việt Nam</h4>
-            <p>Chiến sĩ tự ý trốn khỏi doanh trại, uống rượu bia trong thời gian phục vụ tại ngũ bị xử lý kỷ luật nghiêm khắc từ khiển trách, cảnh cáo, giáng cấp bậc quân hàm cho đến tước danh hiệu quân nhân.</p>
-          </div>
-        </div>
-      </section>
+
 
     </div>
   </main>

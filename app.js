@@ -10,9 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const castCards = document.querySelectorAll('.cast-card');
   const dialogueItems = document.querySelectorAll('.dialogue-item');
   const themeToggleBtn = document.getElementById('themeToggleBtn');
-  const fontToggleBtn = document.getElementById('fontToggleBtn');
-  const fontIncBtn = document.getElementById('fontIncBtn');
-  const fontDecBtn = document.getElementById('fontDecBtn');
   const rehearsalToggleBtn = document.getElementById('rehearsalToggleBtn');
   const prompterToggleBtn = document.getElementById('prompterToggleBtn');
   const prompterDock = document.getElementById('prompterDock');
@@ -20,8 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const prompterSpeedInput = document.getElementById('prompterSpeed');
   const speedLabel = document.getElementById('speedLabel');
   const prompterCloseBtn = document.getElementById('prompterCloseBtn');
-  const downloadPdfBtn = document.getElementById('downloadPdfBtn');
-  const printPageBtn = document.getElementById('printPageBtn');
   const sceneNavItems = document.querySelectorAll('.scene-nav-item');
   const sceneBlocks = document.querySelectorAll('.scene-block');
 
@@ -31,31 +26,8 @@ document.addEventListener('DOMContentLoaded', () => {
   let isPrompterRunning = false;
   let prompterInterval = null;
   let prompterSpeed = 2; // px per tick
-  let currentFontSize = 16;
-  let isSerif = false;
 
-  // 1. Calculate & Render Character Dialogue Counts
-  const charCounts = {};
-  dialogueItems.forEach(item => {
-    const char = item.getAttribute('data-character');
-    if (char) {
-      charCounts[char] = (charCounts[char] || 0) + 1;
-    }
-  });
-
-  filterPills.forEach(pill => {
-    const role = pill.getAttribute('data-filter');
-    const badge = pill.querySelector('.pill-count');
-    if (badge) {
-      if (role === 'all') {
-        badge.textContent = dialogueItems.length;
-      } else {
-        badge.textContent = charCounts[role] || 0;
-      }
-    }
-  });
-
-  // 2. Character Filter Handler
+  // 1. Character Filter Handler
   function setCharacterFilter(role) {
     activeFilter = role;
 
@@ -219,34 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
     prompterSpeed = parseInt(e.target.value, 10);
     speedLabel.textContent = `${prompterSpeed}x`;
   });
-
-  // 6. Text Size & Font Family Controls
-  fontIncBtn.addEventListener('click', () => {
-    if (currentFontSize < 22) {
-      currentFontSize += 1.5;
-      document.documentElement.style.setProperty('--font-size-base', `${currentFontSize}px`);
-    }
-  });
-
-  fontDecBtn.addEventListener('click', () => {
-    if (currentFontSize > 13) {
-      currentFontSize -= 1.5;
-      document.documentElement.style.setProperty('--font-size-base', `${currentFontSize}px`);
-    }
-  });
-
-  fontToggleBtn.addEventListener('click', () => {
-    isSerif = !isSerif;
-    if (isSerif) {
-      document.documentElement.style.setProperty('--font-current', 'var(--font-serif)');
-      fontToggleBtn.innerHTML = '🖋️ Font: Serif';
-    } else {
-      document.documentElement.style.setProperty('--font-current', 'var(--font-sans)');
-      fontToggleBtn.innerHTML = '🔤 Font: Hiện đại';
-    }
-  });
-
-  // 7. Dark / Light Mode Toggle
+  // Dark / Light Mode Toggle
   const savedTheme = localStorage.getItem('kb-theme') || 'light';
   if (savedTheme === 'dark') {
     document.documentElement.setAttribute('data-theme', 'dark');
@@ -269,7 +214,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 8. Text-to-Speech (Đọc thoại Tiếng Việt)
+  // Text-to-Speech (Đọc thoại Tiếng Việt)
   const speakButtons = document.querySelectorAll('.speak-btn');
   let currentUtterance = null;
 
@@ -308,46 +253,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
-
-  // 9. PDF & Print Actions
-  if (printPageBtn) {
-    printPageBtn.addEventListener('click', () => {
-      window.print();
-    });
-  }
-
-  if (downloadPdfBtn) {
-    downloadPdfBtn.addEventListener('click', () => {
-      const originalText = downloadPdfBtn.innerHTML;
-      downloadPdfBtn.innerHTML = '⏳ Đang tạo PDF...';
-      downloadPdfBtn.disabled = true;
-
-      const element = document.getElementById('scriptContainer');
-      const opt = {
-        margin: [10, 10, 10, 10],
-        filename: 'Kich_ban_Ruou_Vao_Ky_Luat_Ra_Hoi_Thi_Phap_Luat.pdf',
-        image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 2, useCORS: true, letterRendering: true },
-        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-      };
-
-      if (window.html2pdf) {
-        window.html2pdf().set(opt).from(element).save().then(() => {
-          downloadPdfBtn.innerHTML = originalText;
-          downloadPdfBtn.disabled = false;
-        }).catch((err) => {
-          console.error(err);
-          downloadPdfBtn.innerHTML = originalText;
-          downloadPdfBtn.disabled = false;
-          window.print();
-        });
-      } else {
-        window.print();
-        downloadPdfBtn.innerHTML = originalText;
-        downloadPdfBtn.disabled = false;
-      }
-    });
-  }
 
   // 10. ScrollSpy for Scene Navigation Bar
   const observerOptions = {
