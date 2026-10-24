@@ -262,7 +262,7 @@ export default function App() {
                           </div>
                         </div>
 
-                        <div className="dialogue-text">
+                        <div className="dialogue-text" style={{ whiteSpace: 'pre-line' }}>
                           {item.actionNote && (
                             <span className="action-note">
                               {renderHighlightedText(item.actionNote, searchQuery)}{' '}
@@ -296,7 +296,7 @@ export default function App() {
               }}
             >
               <span className="stage-dir-icon">🎬</span>
-              <div>(Thượng úy Lai bước lên giữa sân khấu, tất cả các nhân vật xếp thành hàng ngang trang nghiêm phía sau).</div>
+              <div>Thông điệp: (Thượng úy Lai bước lên phía trước, các nhân vật đứng thành hàng phía sau)</div>
             </div>
 
             <div
@@ -309,8 +309,7 @@ export default function App() {
                 lineHeight: '1.6'
               }}
             >
-              “Một phút bốc đồng ham vui có thể đổi lấy nhiều ngày tháng ân hận.<br />
-              Một lần buông lỏng kỷ luật không chỉ tự hủy hoại tương lai bản thân, mà còn làm tổn hại danh dự gia đình, tập thể và hình ảnh cao đẹp của người chiến sĩ Quân đội nhân dân Việt Nam!”
+              “Một phút ham vui có thể đổi lấy nhiều ngày ân hận. Một lần buông lỏng kỷ luật có thể làm ảnh hưởng đến danh dự bản thân, tập thể và hình ảnh người quân nhân.”
             </div>
 
             <div className="slogan-list">
